@@ -102,6 +102,8 @@ namespace RemoteMouseServer
                     byte[] bytes = new byte[1024];
                     int bytesRec = handler.Receive(bytes);
 
+                    data += Encoding.UTF8.GetString(bytes, 0, bytesRec);
+
                     if (data.Contains("<TheEnd>"))
                     {
                         byte[] msg = Encoding.UTF8.GetBytes(data);
